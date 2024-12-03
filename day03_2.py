@@ -16,7 +16,9 @@ for j in range(len(data_split)):
     preceding_characters = ''.join(data_split[:j])
 
     # Find the most recent "do"" (making sure to not match on don't)
-    do_matches = [i.start() for i in re.finditer(r'(?<!g)do(?!n\'t)', preceding_characters)]
+    # do_matches = [i.start() for i in re.finditer(r'(?<!g)do(?!n\'t)', preceding_characters)]
+    # Actually, regex can be simpler
+    do_matches = [i.start() for i in re.finditer(r'do(?!n\'t)', preceding_characters)]
     if do_matches:
         most_recent_do_pos = do_matches[-1]
 
